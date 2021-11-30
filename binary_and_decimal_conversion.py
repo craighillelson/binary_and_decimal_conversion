@@ -1,10 +1,12 @@
+"""Script to drill binary to decimal or decimal to binary conversion."""
+
 import random
 import pyinputplus as pyip
 
 
 def generate_and_output_a_random_binary_number():
-    a = random.randint(0, 256)
-    binary = format(a, "08b")
+    random_decimal_number = random.randint(0, 256)
+    binary = format(random_decimal_number, "08b")
     print(f"\nconvert {binary} to decimal")
     return binary
 
@@ -40,27 +42,29 @@ def calculate_percentage_correct():
 
 
 def output_summary():
-    print(f"\nsummary")
+    print("\nsummary")
     print(f"number of attempts: {number_of_attempts}")
     print(f"number correct: {number_of_correct_answers}")
     print(f"percentage correct: {percentage_correct}%\n")
 
 
-print("\nwould you like to convert")
-print("a. binary to decimal")
-print("b. decimal to binary")
 binary_or_decimal_switcher = {
-    "a": "binary",
-    "b": "decimal"
+    1: "binary",
+    2: "decimal"
     }
+
+print("\nwould you like to convert")
+for number, direction in binary_or_decimal_switcher.items():
+    print(f"{number}. {direction}")
+
 while True:
-    a_or_b = input("> ")
-    if a_or_b not in list(binary_or_decimal_switcher.keys()):
-        print("please select 'a' or 'b'")
+    direction = int(input("> "))
+    if direction not in list(binary_or_decimal_switcher.keys()):
+        print("please select one of the options above")
     else:
         break
 
-binary_or_decimal = binary_or_decimal_switcher[a_or_b]
+binary_or_decimal = binary_or_decimal_switcher[direction]
 correct_answers = []
 incorrect_answers = []
 while True:
@@ -79,5 +83,3 @@ while True:
         percentage_correct = calculate_percentage_correct()
         output_summary()
         break
-    else:
-        pass

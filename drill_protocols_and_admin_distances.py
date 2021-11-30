@@ -103,7 +103,7 @@ def summary():
 
 menu = build_menu()
 protocols_or_administrative_distances = prompt_user()
-print(f"you selected {protocols_or_administrative_distances}")
+print(f"\nyou selected {protocols_or_administrative_distances}")
 protocols_and_administrative_distances = populate_list()
 NUMBER_OF_ITEMS_TO_QUIZ = \
 determine_number_of_items(protocols_and_administrative_distances)

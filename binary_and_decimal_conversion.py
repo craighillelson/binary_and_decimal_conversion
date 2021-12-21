@@ -49,8 +49,8 @@ def output_summary():
 
 
 binary_or_decimal_switcher = {
-    1: "binary",
-    2: "decimal"
+    1: "binary to decimal",
+    2: "decimal to binary"
     }
 
 print("\nwould you like to convert")
